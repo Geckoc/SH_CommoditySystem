@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-5 23:20:49 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.Employees" table="EMPLOYEES">
+        <id name="employee_num" type="java.lang.String" length="11">
+            <generator class="assigned" />
+        </id>
+        <property name="employee_name" type="java.lang.String"/>
+        <property name="employee_birthday" type="date"/>
+        <property name="employee_gender" type="java.lang.String"/>
+        <property name="employee_phone" type="java.lang.String"/>
+        <property name="employee_email" type="java.lang.String"/>
+    </class>
+</hibernate-mapping>
