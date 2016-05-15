@@ -39,6 +39,21 @@ public class EmployeeAction extends SuperAction implements ModelDriven<Employees
 		return "modify_success";
 	}
 	/*
+	 * 保存修改操作
+	 */
+	public String saveUpdate()
+	{
+		employee.getEmployee_num();
+		employee.getEmployee_name();
+		employee.getEmployee_birthday();
+		employee.getEmployee_gender();
+		employee.getEmployee_phone();
+		employee.getEmployee_email();
+		EmployeeDao employeeDao = new EmployeeDao();
+		employeeDao.updateEmployee(employee);
+		return "update_success";
+	}
+	/*
 	 * 删除员工
 	 */
 	public String deleteEmployee()
@@ -65,6 +80,8 @@ public class EmployeeAction extends SuperAction implements ModelDriven<Employees
 		employeeDao.addEmployee(employee);
 		return SUCCESS;
 	}
+
+
 
 	@Override
 	public Employees getModel() {

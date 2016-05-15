@@ -6,6 +6,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.sun.prism.impl.Disposer.Target;
+
 import entity.Employees;
 
 public class EmployeeDao {
@@ -110,7 +112,27 @@ public class EmployeeDao {
 		}
 	}
 	/*
-	 * 
+	 * 修改员工信息
 	 */
+	public boolean updateEmployee(Employees employee)
+	{
+		Transaction trans = null;
+		try {
+			Session session = HibernateUtil.getSession();
+			trans = session.beginTransaction();
+			session.update(employee);
+			trans.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.commit();
+			return false;
+		}finally {
+			if(trans != null)
+			{
+				trans = null;
+			}
+		}
+	}
 	
 }

@@ -35,15 +35,26 @@
 	<action name="modifyEmployee" class="actions.EmployeeAction" method="modifyEmployee">
 		<result name="modify_success">/Employees_modify.jsp</result>
 	</action>
-	
-	
+<!-- 保存修改Action -->
+	<action name="saveUpdate" class="actions.EmployeeAction" method="saveUpdate">
+		<result name="update_success">/Employees_modify_success.jsp</result>
+	</action>
 					<!-- 商品管理类Action -->
 <!-- 获得商品信息列表 -->
 	<action name="queryCommodity" class="actions.CommodityAction" method="queryCommodity">
 		<result name="commodity_information">/commodity_list.jsp</result>
 	</action>
+<!-- 添加商品信息 -->
 	<action name="addCommodity" class="actions.CommodityAction" method="addCommodity">
 		<result name="addCommodity_success" type="chain">queryCommodity</result>
+	</action>
+<!-- 删除商品 -->
+	<action name="deleteCommodity" class="actions.CommodityAction" method="deleteCommodity">
+		<result name="delete" type="chain">queryCommodity</result>
+	</action>
+<!-- 搜索商品 -->
+	<action name="commoditySearch" class="actions.CommodityAction" method="commoditySearch">
+		<result name="search_success">/commodity_search_success.jsp</result>
 	</action>
 </package>
 

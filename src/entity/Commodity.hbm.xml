@@ -4,7 +4,7 @@
 <!-- Generated 2016-5-10 13:17:17 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="entity.Commodity" table="COMMODITY">
-        <id name="commodity_num" type="java.lang.Integer" length="11">
+        <id name="commodity_num" type="java.lang.String" length="11">
             <generator class="assigned" />
         </id>
         <property name="commodity_name" type="java.lang.String"/>

@@ -3,16 +3,17 @@ package entity;
 import java.util.Date;
 
 public class Commodity {
-	private Integer commodity_num;
+	private String commodity_num;
 	private String commodity_name;
 	private Float commodity_price;
 	private String commodity_type;
 	private String commodity_information;
 	private Date commodity_time;
-	public Integer getCommodity_num() {
+	
+	public String getCommodity_num() {
 		return commodity_num;
 	}
-	public void setCommodity_num(Integer commodity_num) {
+	public void setCommodity_num(String commodity_num) {
 		this.commodity_num = commodity_num;
 	}
 	public String getCommodity_name() {

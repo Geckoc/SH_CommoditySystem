@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import entity.Commodity;
+import entity.Employees;
 
 public class CommodityDao {
 	/*
@@ -57,6 +58,54 @@ public class CommodityDao {
 			{
 				trans = null;
 			}
+		}
+	}
+	/*
+	 * 徹底刪除商品信息
+	 */
+	public boolean deleteCommodity(String commodity_num)
+	{
+			Transaction trans = null;
+			try {
+				Session session = HibernateUtil.getSession();
+				trans = session.beginTransaction();
+				Commodity commodity = (Commodity)session.get(Commodity.class, commodity_num);
+				session.delete(commodity);
+				trans.commit();
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				trans.commit();
+				return false;
+			}finally {
+				if(trans != null)
+				{
+					trans = null;
+				}
+			}
+	}
+	
+/*
+ * 搜索商品
+ */
+	public Commodity commoditySearch(String commodity_num)
+	{
+		Transaction trans = null;
+		Commodity commodity = null;
+		try{
+			Session session = HibernateUtil.getSession();
+			trans = session.beginTransaction();
+			commodity = (Commodity) session.get(Commodity.class,commodity_num);
+			trans.commit();
+			return commodity;
+		}catch(Exception e){ 
+			e.printStackTrace();
+			trans.commit();
+			return commodity;
+		}finally{
+			if( trans != null){
+				trans = null;  
+			} 
 		}
 	}
 }
