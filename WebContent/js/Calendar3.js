@@ -12,7 +12,6 @@
 
 //        </div>
 
-<!--
 /**
  * Calendar
  * @param   beginYear           1990
@@ -39,7 +38,6 @@ function Calendar(beginYear, endYear, language, patternDelimiter, date2StringPat
 	this.panel  = this.getElementById("__calendarPanel");
 	this.iframe = window.frames["__calendarIframe"];
 	this.form   = null;
-	
 	this.date = new Date();
 	this.year = this.date.getFullYear();
 	this.month = this.date.getMonth();

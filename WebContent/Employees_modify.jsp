@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <br>
 
-<form name="modifyForm" action="<%=path%>/students/Students_save.action" method="post">
+<form name="modifyForm" action="saveUpdate.action" method="post">
 <table width="400" >
   <tr>
     <td width="30%">员工编号：</td>

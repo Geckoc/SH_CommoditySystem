@@ -38,7 +38,7 @@
 	padding-left:10px;
 }
 #tips{
-	margin-top:10px;
+	margin-top:10px; 
 	width:100%;
 	height:40px;
 }
@@ -72,21 +72,38 @@
 	padding-right:10px;
 	text-align:left;
 	width:98%;
-	font-size:16px;
+	font-size:16px; 
 }
 </style>
 </head>
 <body>
-<div id="navi">
+<div id="navi"> 
 	<div id='naviDiv'>
 		<span><img src="images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;商品管理<span>&nbsp;
 		<span><img src="images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="queryCommodity.action">商品列表</a><span>&nbsp;
 	</div>
 </div>
-<div id="tips">
+<div id="tips"> 
 </div>
 <div id="mainContainer">
 <!-- 从session中获取商品集合 -->
+	<table>
+		<col width="10%"></col>	
+		<col width="10%"></col>	
+		<col width="10%"></col>	
+		<col width="10%"></col>	
+		<col width="10%"></col>	 
+		<col width="10%"></col>	
+		<col width="10%"></col>	
+		<tr>
+			<td>编号</td>
+			<td>商品名</td>
+			<td>价格</td>
+			<td>类型</td>
+			<td>商品详情</td>
+			<td>上架时间</td>
+		</tr>
+	</table>
 <strong>添加商品资料</strong>
 	<s:form name="commodity_add" action="addCommodity.action" method="post">
 		<table width="400">
@@ -97,8 +114,16 @@
 			<tr><td><s:textfield name="commodity_information" label="商品详情"/></td></tr>
 			<tr><td><s:textfield name="commodity_time"  id="control_date" size="20" maxlength="10" onclick="new Calendar().show(this);" label="上架时间"/></td></tr>
 			<tr><td colspan="2" align="center"><input type="submit" class="button" value="添加商品"></td></tr>
+			<li>*3 
 		</table>
 	</s:form>
+	<ul>
+		<li class="item1"></li>
+		<li class="item2"></li>
+		<li class="item3"></li>
+		<li class="item4"></li>
+		<li class="item5"></li>
+	</ul>
 </div>
 </body>
 </html>

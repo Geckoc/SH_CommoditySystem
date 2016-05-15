@@ -8,7 +8,6 @@
 <title>查找商品</title>
 <style type="text/css">
 * {
-    background: none repeat scroll 0 0 transparent;
     border: 1 none;
     margin: 0;
     padding: 0;
@@ -21,8 +20,8 @@
 	position:relative;
 	word-wrap:break-word;
 	border-bottom:1px solid #065FB9;
-	margin:0;
 	padding:0;
+	margin:0;
 	height:40px;
 	line-height:40px;
 	vertical-align:middle;
@@ -36,20 +35,20 @@
 	padding-left:10px;
 }
 #tips{
-	margin-top:10px;
 	width:100%;
 	height:40px;
+	background-color: cadetblue;
+	text-align: left;
+	padding: 18px;
 }
 #buttonGroup{
-	padding-left:10px;
 	float:left;
-	height:35px;
+	height:50px;
+	padding-right: 24px;
 }
 .button{
-	margin-top:20px;
 	padding-left:10px;
 	padding-right:10px;
-	font-size:14px;
 	width:70px;
 	height:30px;
 	line-height:30px;
@@ -69,8 +68,8 @@
 	padding-left:10px;
 	padding-right:10px;
 	text-align:left;
-	width:98%;
-	font-size:16px;
+	width:98%;   
+	font-size:16px; 	
 }
 </style>
 </head>
@@ -82,7 +81,16 @@
 	</div>
 </div>
 <div id="tips">
+		<s:textfield name = "commodity_num" label="编号" placeholder="请输入编号"/>
+		<s:textfield name = "commodity_name" label="商品名" placeholder="请输入商品名"/>
+		<s:textfield name = "commodity_type" label="类型" placeholder="请输入类型"/>
+		<div id="buttonGroup">
+			<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
+				<a href="commoditySearch.action?commodity_num=<s:property value="commodity_num"/>">查找</a>
+			</div>
+		</div>
 </div>
-<div id="mainContainer">
-</div>	
+<div id="mainContainer">	
+	
+</div>
 </html>
