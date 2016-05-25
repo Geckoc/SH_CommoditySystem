@@ -1,10 +1,6 @@
 <%@page import="entity.Employees"%>
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
 <!DOCTYPE html>
 <html>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
@@ -88,7 +84,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="tips">
 </div>
 <div id="mainContainer">
-<!-- 从session中获取员工集合 -->
 <strong>修改员工资料</strong>
 <br>
 <br>
@@ -133,11 +128,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><input type="text" name="employee_email" value='<s:property value="#session.modify_employee.employee_email"/>'/></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><input class="button" type="submit" value="修改"></td>
+    <td colspan="2" align="center"><input class="button" type="submit" value="修改" onclick="firm()"></td>
   </tr>
 </table>
 </form>
-
+<script type="text/javascript">
+	function firm()
+	{
+		confirm("您确定要保存修改?")
+	}
+</script>
 
 </div>
 </body>

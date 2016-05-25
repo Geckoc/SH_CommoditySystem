@@ -9,7 +9,7 @@
 <style type="text/css">
 * {
     background: none repeat scroll 0 0 transparent;
-    border: 0 none;
+    border: 1 none;
     margin: 0;
     padding: 0;
     vertical-align: baseline;
@@ -38,27 +38,15 @@
 #tips{
 	margin-top:10px;
 	width:100%;
-	height:50px;
+	height:40px;
 }
 #buttonGroup{
 	padding-left:10px;
 	float:left;
 	height:35px;
 }
-.search{
-		text-align: center;
-		border-color: #77D1F6;
-		-moz-box-shadow: 2px 2px 4px #282828;
-		-webkit-box-shadow: 2px 2px 4px #282828;
-		background-image: -moz-linear-gradient(top,#EBEBEB, #BFBFBF);
-		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EBEBEB),color-stop(1, #BFBFBF));
-		background-color: rgb(123,85,203);
-		line-height: 30px;
-		height: 30px; 
-}
 .button{
-	float:left;
-	margin-right:10px;
+	margin-top:20px;
 	padding-left:10px;
 	padding-right:10px;
 	font-size:14px;
@@ -80,11 +68,12 @@
 #mainContainer{
 	padding-left:10px;
 	padding-right:10px;
-	text-align:center;
+	text-align:left;
 	width:98%;
-	font-size:12px;
+	font-size:16px;
 }
 </style>
+<script type="text/javascript" src="js/Calendar3.js"></script>
 </head>
 <body>
 	<div id="navi">
@@ -94,25 +83,48 @@
 	</div>
 </div>
 <div id="tips">
-	<div id="buttonGroup">
-		<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
-			<a href="commodity_add.jsp">000商品</a>
-		</div>
-	</div>
 </div>
 <div id="mainContainer">
-	<strong>修改员工资料</strong>
-	<table width="400" border="2" bgcolor="blue">
-	<tr><td width="30%">员工编号：</td>
-	<td>
-	<input type="text" name="commodity_num" value='<s:property value="#session.search_list.commodity_num"/>'  >
-	</td>
-	</tr>
+	<br/>
+	<br/>
+	<s:form action="saveCommodity_info.action" name="update_info" method="post" theme="simple">
+		<table align="center">
+			<tr><th colspan="2" align="center"><h3>修改商品信息</h3></th></tr>
+			<tr><td>商品编号：</td>
+				<td><input type="text" name="commodity_num" readonly="readonly" value='<s:property value="#session.search_list.commodity_num"/>'></td>
+			</tr>
+			<tr>
+				<td>商品名字：</td>
+				<td><input type="text" name="commodity_name"  value='<s:property value="#session.search_list.commodity_name"/>'></td>
+			</tr>
+			<tr>
+				<td>商品价格：</td>
+				<td><input type="text" name="commodity_price" value='<s:property value="#session.search_list.commodity_price"/>'></td>
+			</tr>
+			<tr>
+				<td>商品类型：</td>
+				<td><input type="text" name="commodity_type" value='<s:property value="#session.search_list.commodity_type"/>'></td>
+			</tr>
+			<tr>
+				<td>商品库存：</td>
+				<td><input type="text" readonly="readonly" name="commodity_information" value='<s:property value="#session.search_list.commodity_information"/>'></td>
+			</tr>
+			<tr>
+				<td>上架时间：</td>
+				<td><input type="text" name="commodity_time" readonly="readonly" id="control_date" 
+					onclick="new Calendar().show(this);" value="<s:date name="#session.search_list.commodity_time" format = "yyyy-MM-dd"/>" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" class="button" value="修改" onclick="firm()"></td>
+			</tr>
 	</table>
-<br>
-<br>
-	
-
+	</s:form>
 </div>	
+<script type="text/javascript">
+	function firm()
+	{
+		return confirm("您确定保存修改吗?")
+	}
+</script>
 </body>
 </html>

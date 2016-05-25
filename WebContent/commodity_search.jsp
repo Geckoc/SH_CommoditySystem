@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/default.css" />
 <title>查找商品</title>
 <style type="text/css">
 * {
@@ -71,6 +72,11 @@
 	width:98%;   
 	font-size:16px; 	
 }
+input {
+    line-height: 24px;
+    background-color: #eeeeee;
+    font-size: medium;
+}
 </style>
 </head>
 <body>
@@ -81,16 +87,43 @@
 	</div>
 </div>
 <div id="tips">
+	<s:form action="queryCommodityById.action" method="post" theme="simple">
 		<s:textfield name = "commodity_num" label="编号" placeholder="请输入编号"/>
 		<s:textfield name = "commodity_name" label="商品名" placeholder="请输入商品名"/>
 		<s:textfield name = "commodity_type" label="类型" placeholder="请输入类型"/>
-		<div id="buttonGroup">
-			<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
-				<a href="commoditySearch.action?commodity_num=<s:property value="commodity_num"/>">查找</a>
-			</div>
-		</div>
+		<s:submit value="  查找     "/>
+	</s:form>
 </div>
 <div id="mainContainer">	
-	
+	<table class="default" width="100%">
+		<col width="10%">
+		<col width="10%">
+		<col width="15%">
+		<col width="10%">
+		<col width="15%">
+		<col width="20%">
+		<col width="10%">
+			<tr class="title">
+				<td>商品编号</td>
+				<td>商品名字</td>
+				<td>价格</td>
+				<td>类型</td>
+				<td>库存</td>
+				<td>上架时间</td>
+				<td>操作</td>
+			</tr>
+		<s:iterator value="#session.queryById_list" var="queryById">
+		<tr class="list">
+		<td><s:property value="#queryById.commodity_num" /> </td>
+		<td><a href="commoditySearch.action?commodity_num=<s:property value="#queryById.commodity_num"/>"><s:property value="#queryById.commodity_name"/></a></td>
+		<td>￥<s:property value="#queryById.commodity_price"/> </td>
+		<td><s:property value="#queryById.commodity_type"/> </td>
+		<td><s:property value="#queryById.commodity_information"/> </td>
+		<td><s:date name="#queryById.commodity_time" format="yy年MM月dd日"/></td>
+		<td><a href="deleteCommodity.action?commodity_num=<s:property value="#commodity.commodity_num"/>"
+		onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+		</tr>
+		</s:iterator>
+	</table>
 </div>
 </html>

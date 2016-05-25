@@ -12,8 +12,8 @@
 	<div id="header">
 		<div id="logo"></div>
 		<div id="heading">
-			<div id="title">销售存管理系统</div>
-			<div id="subTitle">Bveac 1.0</div>
+			<div id="title">RIC进销存管理系统</div>
+			<div id="subTitle">RICHARD 1.0</div>
 		</div>
 	</div>
 	<div id="main">
@@ -30,11 +30,11 @@
 					</div>
 					<div id="user-name">
 						<span class="item">用户名:</span>
-						<span><input type="text" name="user.name" class="form-input"></span>
+						<span><input type="text" name="name" class="form-input"></span>
 					</div>
 					<div id="user-password">
 						<span class="item">密&nbsp;&nbsp;&nbsp;码:</span>
-						<span class="input"><input type="password" name="user.password" class="form-input"></span>
+						<span class="input"><input type="password" name="password" class="form-input"></span>
 					</div>
 					<div id="button-group">
 						<input type="submit" class="btn" value="登录"/>

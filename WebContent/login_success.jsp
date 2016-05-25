@@ -33,7 +33,7 @@ function firm()
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <link rel="stylesheet" href="Font-Awesome-3.2.1/css/font-awesome.css">
 <link rel="stylesheet" href="Font-Awesome-3.2.1/css/font-awesome.min.css">
-<title>销售存系统主页</title>
+<title>RicSystem-CHEN</title>
 </head>
 <body>
 	<div id="wrapper">
@@ -42,8 +42,8 @@ function firm()
 		<div id="menu">
 			<div id="menu_container">
 				<ul id="menu_items">
-					<li class="menu_item on" style="border-radius:8px 0 0 8px" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#77D1F6';this.style.borderRadius='8px 0 0 8px'"><a>系统管理</a></li>
-					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a href="query.action">员工管理</a></li>
+					<li class="menu_item on" style="border-radius:8px 0 0 8px" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#77D1F6';this.style.borderRadius='8px 0 0 8px'"><a>首页</a></li>
+					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a href="Employees_query_success.jsp" target="MainFrame">员工管理</a></li>
 					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a>商品管理</a></li>
 					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a>供应商和客户</a></li>
 					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a>销售订单</a></li>
@@ -61,7 +61,7 @@ function firm()
 		<iframe src="tree.jsp"></iframe>
         </div>
 	<div id="main">
-		<iframe name="MainFrame" src="home_content.jsp"></iframe>
+		<iframe name="MainFrame" src="home_content.jsp" scrolling="auto"></iframe>
 	</div>
 	<div id="footer">Copyright © 2016-2060 All Rights Reserved Powered By ChenBaiCheng</div>
 </div>

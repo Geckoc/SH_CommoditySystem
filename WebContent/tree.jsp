@@ -1,9 +1,5 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>导航树</title>
@@ -11,23 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<style type="text/css">@import url('components/dtree/dtree.css');</style>
 	<script type="text/javascript">var dtreeIconBasePath = "components/dtree";</script>
 	<script type="text/javascript"  src="components/dtree/dtree.js"></script>
-</head>
-<body>
-<script type="text/javascript"> 
-var treeMenu = [
-	{ level:1, name:"员工管理"},
-	{ level:2, name:"员工列表", ico:"images/icon_default.gif",link:"query.action"},
-	{ level:1, name:"商品管理"},
-	{ level:2, name:"商品列表 ", ico:"images/icon_default.gif",link:"queryCommodity.action"},
-	{ level:1, name:"订单管理"},
-	{ level:2, name:"进货订单", ico:"images/icon_default.gif",link:"news_list.html"},
-	{ level:2, name:"销售订单", ico:"images/icon_default.gif",link:"bulletin_list.html"},
-	{ level:1, name:"系统邮件", ico:"images/icon_default.gif"},
-	{ level:1, name:"网络文件", ico:"images/icon_default.gif",link:"complaint_list.html"}
-];
-</script>
-
-<style>
+	<style type="text/css">
 * {
     background: none repeat scroll 0 0 transparent;
     border: 0 none;
@@ -53,6 +33,22 @@ var treeMenu = [
 #BFBFBF));
 }
 </style>
+</head>
+<body>
+<script type="text/javascript"> 
+var treeMenu = [
+	{ level:1, name:"员工管理"},
+	{ level:2, name:"员工列表", ico:"images/icon_default.gif",link:"query.action"},
+	{ level:1, name:"商品管理"},
+	{ level:2, name:"商品列表 ", ico:"images/icon_default.gif",link:"queryCommodity.action"},
+	{ level:1, name:"订单管理"},
+	{ level:2, name:"进货订单", ico:"images/icon_default.gif",link:"QueryAllOrdersInfo.action"},
+	{ level:2, name:"销售订单", ico:"images/icon_default.gif",link:"bulletin_list.html"},
+	{ level:1, name:"系统邮件", ico:"images/icon_default.gif"},
+	{ level:1, name:"用户反馈", ico:"images/icon_default.gif",link:"complaint_list.html"}
+];
+</script>
+
 <div id="menuControll">
 菜单控制:【<a href="#" onclick="tree.openAll();this.blur();return false;" style="color:#333333;text-decoration:none">展开</a>】
 【<a href="#" onclick="tree.closeAll();this.blur();return false;" style="color:#333333;text-decoration:none">折叠</a>】

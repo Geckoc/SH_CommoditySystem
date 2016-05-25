@@ -75,6 +75,15 @@
 	font-size:16px; 
 }
 </style>
+<script type="text/javascript">
+	function firm()
+	{
+		if( confirm( "已確認信息沒有錯誤?" ));
+	}else{
+		alert("取消")
+	}
+
+</script>
 </head>
 <body>
 <div id="navi"> 
@@ -84,46 +93,29 @@
 	</div>
 </div>
 <div id="tips"> 
+	<strong>添加商品资料</strong>
 </div>
 <div id="mainContainer">
-<!-- 从session中获取商品集合 -->
-	<table>
-		<col width="10%"></col>	
-		<col width="10%"></col>	
-		<col width="10%"></col>	
-		<col width="10%"></col>	
-		<col width="10%"></col>	 
-		<col width="10%"></col>	
-		<col width="10%"></col>	
-		<tr>
-			<td>编号</td>
-			<td>商品名</td>
-			<td>价格</td>
-			<td>类型</td>
-			<td>商品详情</td>
-			<td>上架时间</td>
-		</tr>
-	</table>
-<strong>添加商品资料</strong>
 	<s:form name="commodity_add" action="addCommodity.action" method="post">
 		<table width="400">
 			<tr><td><s:textfield name="commodity_num" label="商品编号"/></td></tr>
 			<tr><td><s:textfield name="commodity_name" label="商品名"/></td></tr>
 			<tr><td><s:textfield name="commodity_price" label="商品价格"/></td></tr>
 			<tr><td><s:textfield name="commodity_type" label="商品类型"/></td></tr>
-			<tr><td><s:textfield name="commodity_information" label="商品详情"/></td></tr>
-			<tr><td><s:textfield name="commodity_time"  id="control_date" size="20" maxlength="10" onclick="new Calendar().show(this);" label="上架时间"/></td></tr>
-			<tr><td colspan="2" align="center"><input type="submit" class="button" value="添加商品"></td></tr>
-			<li>*3 
+			<tr>
+				<td>添加库存量:</td>
+				<td><input type="number" min="1" value="0" step="1" name="commodity_information"></td>
+			</tr>
+			<tr>
+				<td>上架时间:</td>
+				<td>
+			 <!-- Struts2 tag 不能用readonly -->
+			<!--<s:textfield name="commodity_time"  id="control_date" size="20" maxlength="10" onclick="new Calendar().show(this);" label="上架时间" readonly="readonly"/> -->
+				<input type="text" name="commodity_time" id="control_date" size="20" maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" />
+				</td></tr>
+			<tr><td colspan="2" align="center"><input type="submit" onclick="firm()" class="button" value="添加商品"></td></tr>
 		</table>
 	</s:form>
-	<ul>
-		<li class="item1"></li>
-		<li class="item2"></li>
-		<li class="item3"></li>
-		<li class="item4"></li>
-		<li class="item5"></li>
-	</ul>
 </div>
 </body>
 </html>

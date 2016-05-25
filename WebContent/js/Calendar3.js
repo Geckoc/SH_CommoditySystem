@@ -14,8 +14,8 @@
 
 /**
  * Calendar
- * @param   beginYear           1990
- * @param   endYear             2010
+ * @param   beginYear           1950
+ * @param   endYear             2020
  * @param   language            0(zh_cn)|1(en_us)|2(en_en)|3(zh_tw)
  * @param   patternDelimiter    "-"
  * @param   date2StringPattern  "yyyy-MM-dd"
@@ -27,8 +27,8 @@
  * IMPORTANT:you must include this script file inner html body elment 
  */
 function Calendar(beginYear, endYear, language, patternDelimiter, date2StringPattern, string2DatePattern) {
-	this.beginYear = beginYear || 1990;
-	this.endYear   = endYear   || 2020;
+	this.beginYear = beginYear || 1960;
+	this.endYear   = endYear   || 2030;
 	this.language  = language  || 0;
 	this.patternDelimiter = patternDelimiter     || "-";
 	this.date2StringPattern = date2StringPattern || Calendar.language["date2StringPattern"][this.language].replace(/\-/g, this.patternDelimiter);

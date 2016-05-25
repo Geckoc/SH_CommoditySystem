@@ -80,8 +80,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="navi">
 	<div id='naviDiv'>
-		<span><img src="images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;员工管理<span>&nbsp;
-		<span><img src="images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="query.action">员工列表</a><span>&nbsp;
+		<span><img src="images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<span>员工管理</span>&nbsp;
+		<span><img src="images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<span><a href="query.action">员工列表</a></span>&nbsp;
 	</div>
 </div>
 <div id="tips">
@@ -104,10 +104,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </td>
   </tr>
   <tr>
+  	<td>出生日期:</td>
     <td>
-    <!-- <input name="employee_birthday" type="text" id="control_date" size="20"
-      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" />  -->
-      <s:textfield  name="employee_birthday" id="control_date" size="20" maxlength="10" onclick="new Calendar().show(this);" label="出生日期" readonly="readonly"/>
+     <input name="employee_birthday" type="text" id="control_date"
+     onclick="new Calendar().show(this);" readonly="readonly" />
+      <!-- Struts2 Tag Can't used read only, but Input -->
+     <!--  <s:textfield  name="employee_birthday" id="control_date" size="20" maxlength="10" onclick="new Calendar().show(this);" label="出生日期" readonly="readonly"/> -->
     </td>
   </tr>
   <tr>
@@ -125,12 +127,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<s:textfield name="employee_email" label="邮箱地址"/> </td>
   </tr>
   <tr>
-    <td colspan="2" align="center">	<input class="button" type="submit" value="添加"> 
+    <td colspan="2" align="center">	<input class="button" type="submit" value="添加" > 
     </td>
   </tr>
 </table>
 </s:form>
-
 </div>
 </body>
 </html>

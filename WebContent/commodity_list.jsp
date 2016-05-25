@@ -98,36 +98,51 @@
 <table class="default" width="100%">
 	<col width="10%">
 	<col width="10%">
-	<col width="15%">
+	<col width="10%">
+	<col width="10%">
 	<col width="10%">
 	<col width="15%">
-	<col width="20%">
+	<col width="10%">
 	<col width="10%">
 	<tr class="title">
 		<td>商品编号</td>
 		<td>商品名字</td>
 		<td>价格</td>
 		<td>类型</td>
-		<td>商品详情</td>
+		<td>库存</td>
 		<td>上架时间</td>
+		<td>下单</td>
 		<td>操作</td>
 	</tr>
 	
-	<!-- 遍历开始 -->
+	<!-- 迭代遍历开始 -->
 	<s:iterator value="#session.commodity_list" var="commodity">
 	<tr class="list">
 		<td><s:property value="#commodity.commodity_num"/> </td>
-		<td><a href="modifyEmployee.action?commodity_num=<s:property value="#commodity.commodity_num"/>"><s:property value="#commodity.commodity_name"/></a></td>
-		<td>￥<s:property value="#commodity.commodity_price"/></td>
+		<td><a href="commoditySearch.action?commodity_num=<s:property value="#commodity.commodity_num"/>">
+				<s:property value="#commodity.commodity_name"/> </a></td>
+		<td>￥<s:property value="#commodity.commodity_price"/> </td>
 		<td><s:property value="#commodity.commodity_type"/></td>
 		<td><s:property value="#commodity.commodity_information"/> </td>
 		<td><s:date name="#commodity.commodity_time" format="yyyy年MM月dd日" /> </td>
+		<td><a href="GetPurchaseOrder_info.action?commodity_num=<s:property value="#commodity.commodity_num"/>">
+				加入购物车</a></td>
 		<td><a href="deleteCommodity.action?commodity_num=<s:property value="#commodity.commodity_num"/>"
 		onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
 	</tr>
 	</s:iterator>
-	<!-- 遍历结束 -->
+	<!-- 迭代遍历结束 -->
 </table>
+<script type="text/javascript">
+	function frim()
+	{
+		var num_count=prompt("请输入下单数量 ","");//将输入的内容赋给变量 num_count
+	    if(num_count)//如果返回的有内容
+	    {
+	        alert("下单成功 ，数量为 :"+ num_count)
+	    }
+	}
+</script>
 </div>
 </body>
 </html>
