@@ -10,14 +10,8 @@ import entity.User;
 public class UserAction extends SuperAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user = new User();
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	//用户登录Action
-	public String login() throws Exception
+	public String login()
 	{
 		UserDao userDao = new UserDao();
 		if(userDao.userLogin(user))
@@ -33,7 +27,7 @@ public class UserAction extends SuperAction implements ModelDriven<User>{
 	
 	//用户注销Action
 	@SkipValidation
-	public String logout() throws Exception
+	public String logout()
 	{
 		if(session.getAttribute("loginUserName") != null)
 		{

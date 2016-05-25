@@ -112,7 +112,7 @@ public class EmployeeDao {
 		}
 	}
 	/*
-	 * 修改员工信息
+	 * 保存修改员工信息
 	 */
 	public boolean updateEmployee(Employees employee)
 	{

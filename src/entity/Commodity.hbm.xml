@@ -12,5 +12,6 @@
         <property name="commodity_type" type="java.lang.String"/>
         <property name="commodity_information" type="java.lang.String"/>
         <property name="commodity_time" type="date"/>
+        
     </class>
 </hibernate-mapping>

@@ -48,6 +48,5 @@ public class Commodity {
 		this.commodity_time = commodity_time;
 	}
 	
-	
 
 }

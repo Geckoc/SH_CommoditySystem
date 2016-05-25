@@ -30,6 +30,18 @@ public class CommodityAction extends SuperAction implements ModelDriven<Commodit
 		return "commodity_information";
 	}
 	/*
+	 * 按编号查询
+	 */
+	public String queryCommodityById() throws Exception
+	{
+		CommodityDao commodityDao = new CommodityDao();
+		List<Commodity> list = commodityDao.queryCommodity(commodity);
+		if( list != null && list.size() > 0  ){
+			session.setAttribute("queryById_list", list);
+		}
+			return "queryById_success";
+	}
+	/*
 	*	添加商品
 	*/	
 	public String addCommodity() throws Exception
@@ -67,6 +79,24 @@ public class CommodityAction extends SuperAction implements ModelDriven<Commodit
 		session.setAttribute("search_list", com);
 			return "search_success";
 	}
+	
+	/*
+	 * 保存修改
+	 */
+	public String saveCommodity_info()
+	{	
+		commodity.getCommodity_num();
+		commodity.getCommodity_name();
+		commodity.getCommodity_price();
+		commodity.getCommodity_type();
+		commodity.getCommodity_information();
+		commodity.getCommodity_time();
+		CommodityDao commodityDao = new CommodityDao();
+		commodityDao.updateCommodity(commodity);
+		return "saveCommoditySuccess";
+	}
+	
+	
 	
 	@Override
 	public Commodity getModel() {
