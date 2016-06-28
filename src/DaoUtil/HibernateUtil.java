@@ -8,6 +8,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
+	@SuppressWarnings("rawtypes")
 	private static ThreadLocal session = new ThreadLocal();
 	private HibernateUtil()	{}
 	public static SessionFactory getSessionFactory()
@@ -15,10 +16,10 @@ public class HibernateUtil {
 		  //第一步:读取Hibernate的配置文件  hibernamte.cfg.xml文件
 		Configuration config = new Configuration().configure();
 		  //第二步:创建服务注册构建器对象，通过配置对象中加载所有的配置信息
-		  ServiceRegistryBuilder regbulider=new ServiceRegistryBuilder().applySettings(config.getProperties());
+		  ServiceRegistryBuilder regbulider = new ServiceRegistryBuilder().applySettings(config.getProperties());
 		 //创建注册服务
-		  ServiceRegistry reg=regbulider.buildServiceRegistry();
-		 sessionFactory=config.buildSessionFactory(reg);
+		  ServiceRegistry reg = regbulider.buildServiceRegistry();
+		 sessionFactory = config.buildSessionFactory(reg);
 		 return sessionFactory;
 	}
 	
@@ -38,7 +39,7 @@ public class HibernateUtil {
 	 }
 	
 	public static void closeSession() {
-		Session s = (Session)session.get();
+		Session s = (Session) session.get();
 		if( s != null)
 		{
 			s.close();

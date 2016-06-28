@@ -15,10 +15,18 @@
 		<result name="logout_success">/login.jsp</result>
 	</action>
 <!-- 用户注册Action -->
-	<action name="register" class="actions.RegisterAction" method="register">
+	<action name="register" class="actions.UserAction" method="register">
 		<result name="success">/sign_success.jsp</result>
 		<result name="input">/sign_error.jsp</result>
 	</action>
+<!-- 用户验证Action -->
+	<action name="checkName" class="actions.CheckName">
+		<result name="success">/sign_success.jsp</result>
+		<result name="input">/sign_error.jsp</result>
+	</action>
+	
+	
+	
 <!-- 获得所有员工信息Action -->
 	<action name="query" class="actions.EmployeeAction" method="query">
 		<result name="query_information">/Employees_query_success.jsp</result>
@@ -69,14 +77,19 @@
 	<action name="GetPurchaseOrder_info" class="actions.PurchaseOrdersActions" method="GetPurchaseOrder_info">
 		<result name="getInfo_success">/purchase_orders.jsp</result>
 	</action>
-<!-- 添加订单 -->
-	<action name="addPurchaseOrder" class="actions.PurchaseOrdersActions" method="addPurchaseOrder">
-		<result name="addOrder_success">/commodity_search.jsp</result>
-	</action>
 <!-- 获取全部订单信息 -->
 	<action name="QueryAllOrdersInfo" class="actions.PurchaseOrdersActions" method="QueryAllOrdersInfo">
 		<result name="ordersInfo_success">/purchase_ordersInfo.jsp</result>
 	</action>
+<!-- 添加订单 -->
+	<action name="addPurchaseOrder" class="actions.PurchaseOrdersActions" method="addPurchaseOrder">
+		<result name="addOrder_success">/commodity_search.jsp</result>
+	</action>
+<!-- 删除订单 -->
+	<action name="deletePurchaseOrder" class="actions.PurchaseOrdersActions" method="deletePurchaseOrder">
+		<result name="deletePurchaseOrders_success" type="chain">QueryAllOrdersInfo</result>
+	</action>
+
 </package>
 
 

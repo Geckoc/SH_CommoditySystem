@@ -8,8 +8,8 @@ public class PurchaseOrders {
 	private String purchaseOrders_name;
 	private String purchaseOrders_price;
 	private String purchaseOrders_type;
+	private Double purchaseOrders_totalPrice;
 	private String purchaseOrders_amount;
-	private String purchaseOrders_message;
 	private Date purchaseOrders_date;
 	
 	public String getPurchaseOrders_num() {
@@ -42,17 +42,17 @@ public class PurchaseOrders {
 	public void setPurchaseOrders_type(String purchaseOrders_type) {
 		this.purchaseOrders_type = purchaseOrders_type;
 	}
+	public Double getPurchaseOrders_totalPrice() {
+		return purchaseOrders_totalPrice;
+	}
+	public void setPurchaseOrders_totalPrice(Double purchaseOrders_totalPrice) {
+		this.purchaseOrders_totalPrice = purchaseOrders_totalPrice;
+	}
 	public String getPurchaseOrders_amount() {
 		return purchaseOrders_amount;
 	}
 	public void setPurchaseOrders_amount(String purchaseOrders_amount) {
 		this.purchaseOrders_amount = purchaseOrders_amount;
-	}
-	public String getPurchaseOrders_message() {
-		return purchaseOrders_message;
-	}
-	public void setPurchaseOrders_message(String purchaseOrders_message) {
-		this.purchaseOrders_message = purchaseOrders_message;
 	}
 	public Date getPurchaseOrders_date() {
 		return purchaseOrders_date;

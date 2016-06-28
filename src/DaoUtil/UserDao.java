@@ -6,18 +6,15 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.Interface.IUserDao;
 
 import entity.User;
 
 
-public class UserDao {
-	/**
-	 * 用户登录
-	 * @param user
-	 * @return
-	 */
-	public boolean userLogin(User user)
-	{
+public class UserDao implements IUserDao{
+
+	@Override
+	public boolean userLogin(User user) {
 		Transaction trans = null;
 		String hql = "";
 		try {
@@ -27,6 +24,7 @@ public class UserDao {
 			Query query = session.createQuery(hql);
 			query.setParameter(0, user.getName());
 			query.setParameter(1, user.getPassword());
+			@SuppressWarnings("rawtypes")
 			List list = query.list();
 			trans.commit();   //提交事务
 			if(list.size() > 0)
@@ -46,13 +44,9 @@ public class UserDao {
 			}
 		}
 	}
-	
-	/**
-	 * 用户注册方法
-	 * @param user
-	 */
-	public void savaUser(User user)
-	{
+
+	@Override
+	public boolean saveUser(User user) {
 		Session session = null;
 		Transaction tx = null;
 		try {
@@ -60,12 +54,45 @@ public class UserDao {
 			tx = session.beginTransaction();
 			session.save(user);
 			tx.commit();
+			return true;
 		} catch(Exception e){
 			if(tx != null) tx.rollback();
 			throw e;
 		}finally {
 			HibernateUtil.closeSession();
 			}
+	}
+
+	@SuppressWarnings("null")
+	@Override
+	public boolean ValidateName(String name) 
+	{
+		Transaction trans = null;
+		String hql = "";
+		User user = null;
+		try {
+			Session session = HibernateUtil.getSession();
+			trans = session.beginTransaction();
+			hql = "from User where name=?";
+			Query query = session.createQuery(hql);
+			query.setParameter(0, user.getName());
+			@SuppressWarnings("rawtypes")
+			List list = query.list();
+			trans.commit();
+			if( list.size() > 0 ){
+				return true;
+			}else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.commit();
+			return false;
+		}finally {
+			if( trans != null ){
+				trans = null;
+			}
+		}
 	}
 	
 }

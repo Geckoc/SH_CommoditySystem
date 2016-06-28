@@ -6,14 +6,18 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.Interface.IPurchaseOrdersDao;
+
 import entity.Commodity;
 import entity.PurchaseOrders;
 
-public class PurchaseOrdersDao {
+public class PurchaseOrdersDao implements IPurchaseOrdersDao {
 	/*
 	 * 列出所有订单信息列表
 	 * Get PurchaseOrders Information 
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public List<PurchaseOrders> queryPurchaseOrdersAll()
 	{
 		Transaction trans = null;
@@ -81,35 +85,52 @@ public class PurchaseOrdersDao {
 			HibernateUtil.closeSession();
 		}
 	}
-	/*
-	 * 添加订单
-	 * Add PurchaseOrders method
-	 */
+	
+	@Override
 	public boolean addPurchaseOrders(PurchaseOrders purchaseOrders)
 	{	
 		purchaseOrders.setPurchaseOrders_num(GetPurchaseOrders_num());  //设置订单编号
-		Transaction trans = null;
+		Transaction trans1 = null;
+	//	Transaction trans2 = null;
+	//	Commodity commodity = null;
+	//	String hql = "update Commodity set commodity_information=0+100 where commodity_num = ?";
 		try {
 			Session session = HibernateUtil.getSession();
-			trans = session.beginTransaction();
+			trans1 = session.beginTransaction();
 			session.save(purchaseOrders);
-			trans.commit();
+			trans1.commit();
 			return true;
+		/*	session.disconnect();
+			session = HibernateUtil.getSession();
+			trans2 = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setParameter(0, commodity.getCommodity_num());
+			query.executeUpdate();
+			List list = query.list();
+			trans2.commit();
+			if( list !=null && list.size() > 0){
+				return true;
+			}else {
+				return false;
+			} */
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			trans.commit();
-			if( trans != null){
-				trans = null;
-			}
+			trans1.commit();
+		//	trans2.commit();
+			if( trans1 != null){
+				trans1 = null;
+		}
+		/*	if(trans2 != null){
+				trans2 = null;
+			} */
 			return false;
 		}finally {
 			HibernateUtil.closeSession();
 		}
 	}
-	/*
-	 * 获取订单信息
-	 * Get PurchaseOrders Information
-	 */
+	
+	@Override
 	public Commodity GetOrderInformation(String commodity_num)
 	{
 		Transaction trans = null;
@@ -130,6 +151,36 @@ public class PurchaseOrdersDao {
 		}finally {
 			HibernateUtil.closeSession();
 		}
+	}
+	
+	@Override
+	public boolean deletePurchaseOrders(String purchaseOrders_num) {
+		Transaction trans = null;
+		Session session = null;
+		PurchaseOrders orders = null;
+		try {
+			session = HibernateUtil.getSession();
+			trans = session.beginTransaction();
+			orders = (PurchaseOrders) session.get(PurchaseOrders.class, purchaseOrders_num);
+			session.delete(orders);
+			trans.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.commit();
+			return false;
+		}finally {
+			if( trans != null ){
+				trans = null;
+			}
+			HibernateUtil.closeSession();
+		}
+		
+	}
+	@Override
+	public boolean updatePurchaseOrders(PurchaseOrders orders) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

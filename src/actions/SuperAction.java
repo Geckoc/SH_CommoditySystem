@@ -12,9 +12,6 @@ import org.apache.struts2.util.ServletContextAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SuperAction extends ActionSupport implements ServletRequestAware,ServletResponseAware,ServletContextAware{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	protected HttpServletRequest request;   //请求对象
 	protected HttpServletResponse response; //响应对象

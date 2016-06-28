@@ -2,18 +2,20 @@ package DaoUtil;
 
 import java.util.List;
 
-import org.apache.commons.lang3.ObjectUtils.Null;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import entity.Commodity;
-import entity.Employees;
+import com.Interface.ICommodityDao;
 
-public class CommodityDao {
+import entity.Commodity;
+
+public class CommodityDao implements ICommodityDao {
 	/*
 	 * 获取商品信息列表
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public List<Commodity> queryAllCommodity()
 	{
 		Transaction trans = null;
@@ -39,6 +41,8 @@ public class CommodityDao {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
 	public List<Commodity> queryCommodity(Commodity commodity)
 	{
 		Transaction trans = null;
@@ -63,9 +67,8 @@ public class CommodityDao {
 			}
 		}
 	}
-	/*
-	 * 添加商品信息
-	 */
+	
+	@Override
 	public boolean addCommodity(Commodity commodity)
 	{
 		Transaction trans = null;
@@ -86,9 +89,8 @@ public class CommodityDao {
 			}
 		}
 	}
-	/*
-	 * 徹底刪除商品信息
-	 */
+	
+	@Override
 	public boolean deleteCommodity(String commodity_num)
 	{
 			Transaction trans = null;
@@ -111,9 +113,7 @@ public class CommodityDao {
 			}
 	}
 	
-/*
- * 搜索商品
- */
+	@Override
 	public Commodity commoditySearch(String commodity_num)
 	{
 		Transaction trans = null;
@@ -134,9 +134,8 @@ public class CommodityDao {
 			} 
 		}
 	}
-	/*
-	 * 保存修改的商品信息
-	 */
+	
+	@Override
 	public boolean updateCommodity( Commodity commodity)
 	{
 		Transaction trans = null;

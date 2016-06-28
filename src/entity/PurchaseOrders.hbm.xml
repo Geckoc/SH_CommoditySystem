@@ -15,9 +15,9 @@
         </property>
         <property name="purchaseOrders_type" type="java.lang.String">
         </property>
-        <property name="purchaseOrders_amount" type="java.lang.String">
+        <property name="purchaseOrders_totalPrice" type="java.lang.Double">
         </property>
-        <property name="purchaseOrders_message" type="java.lang.String">
+        <property name="purchaseOrders_amount" type="java.lang.String">
         </property>
         <property name="purchaseOrders_date" type="java.util.Date">
         </property>

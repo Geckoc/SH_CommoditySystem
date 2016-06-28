@@ -6,15 +6,16 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.sun.prism.impl.Disposer.Target;
+import com.Interface.IEmployeeDao;
 
 import entity.Employees;
 
-public class EmployeeDao {
+public class EmployeeDao implements IEmployeeDao{
 	
 	/*
 	 * 获得员工列表
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Employees> queryAllEmployees()
 	{
 		Transaction trans = null;

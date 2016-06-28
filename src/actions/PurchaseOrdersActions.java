@@ -14,8 +14,6 @@ import entity.PurchaseOrders;
 
 public class PurchaseOrdersActions extends SuperAction implements ModelDriven<PurchaseOrders>{
 	/**
-	 * Use ModelDriven Method
-	 * You must New Object
 	 * 使用模型驱动方法获取提交表单
 	 * 封装的实体类必须要实例化
 	 */
@@ -60,13 +58,22 @@ public class PurchaseOrdersActions extends SuperAction implements ModelDriven<Pu
 		purchaseOrders.getPurchaseOrders_name();
 		purchaseOrders.getPurchaseOrders_price();
 		purchaseOrders.getPurchaseOrders_amount();
-		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd"+"&"+"HH:MM:ss"); 
+		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd"+"&"+"HH:mm:ss"); 
 		purchaseOrders.setPurchaseOrders_date(simple.parse(request.getParameter("purchaseOrders_date")));
+		commodity.getCommodity_num();
 		PurchaseOrdersDao OrdersDao = new PurchaseOrdersDao();
 		OrdersDao.addPurchaseOrders(purchaseOrders);
 		return "addOrder_success";
 	}
 
+	public String deletePurchaseOrder()
+	{
+		PurchaseOrdersDao ordersDao = new PurchaseOrdersDao();
+		String purchaseOrders_num = request.getParameter("purchaseOrders_num");
+		ordersDao.deletePurchaseOrders(purchaseOrders_num);
+		return "deletePurchaseOrders_success";
+	}
+	
 	@Override
 	public PurchaseOrders getModel() {
 		return this.purchaseOrders;

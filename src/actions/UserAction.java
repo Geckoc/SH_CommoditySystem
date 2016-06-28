@@ -1,5 +1,8 @@
 package actions;
 
+import java.io.IOException;
+
+
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -10,9 +13,9 @@ import entity.User;
 public class UserAction extends SuperAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user = new User();
-	//用户登录Action
+	
 	public String login()
-	{
+	{	
 		UserDao userDao = new UserDao();
 		if(userDao.userLogin(user))
 		{
@@ -24,6 +27,22 @@ public class UserAction extends SuperAction implements ModelDriven<User>{
 			return "error";
 		}
 	}
+	
+	
+	public String register() throws IOException
+	{	
+		
+		user.getName();
+		user.getPassword();
+		user.getGender();
+		user.getJob();
+		user.getHobby();
+		user.getInformation();
+		UserDao userDao = new UserDao();
+		userDao.saveUser(user);
+			return SUCCESS;
+	}
+	
 	
 	//用户注销Action
 	@SkipValidation
@@ -42,9 +61,7 @@ public class UserAction extends SuperAction implements ModelDriven<User>{
 		if("".equals(user.getName().trim())){
 			this.addFieldError("userNameError", "用户名不能为空");
 		}
-		if(user.getPassword().length() < 6){
-			this.addFieldError("passwordError", "密码最小长度为6位");
-		}
+		
 	}
 	@Override
 	public User getModel() {
