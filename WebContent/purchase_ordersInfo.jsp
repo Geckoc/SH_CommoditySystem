@@ -67,7 +67,10 @@
 	padding-right:10px;
 	text-align:center;
 	width:98%;
+	height:500px;
 	font-size:12px;
+	overflow-y:auto;
+	
 }
 ul
 {
@@ -115,20 +118,22 @@ background-color:#cc0000;
 	<table class="default" width="100%">
 	<col width="10%">
 	<col width="10%">
+	<col width="8%">
 	<col width="10%">
-	<col width="10%">
-	<col width="10%">
-	<col width="20">
+	<col width="5%">
+	<col width="12%">
 	<col width="15%">
-	<col width="15%">
+	<!-- 	<col width="10">	 -->
+	<col width="10%">
 	<tr class="title">
 		<td>订单编号</td>
 		<td>商品名字</td>
 		<td>价格</td>
 		<td>商品类型</td>
 		<td>购买数</td>
-		<td>买家留言</td>
+		<td>应付款</td>
 		<td>下单时间</td>
+	<!-- 	<td>确认购买</td>  -->
 		<td>操作</td>
 	</tr>
 	<!-- Iterator Search -->
@@ -136,12 +141,14 @@ background-color:#cc0000;
 			<tr class="list">
 				<td> <s:property value="#orders.purchaseOrders_num"/> </td>
 				<td> <s:property value="#orders.purchaseOrders_name"/> </td>
-				<td> <s:property value="#orders.purchaseOrders_price"/> </td>
+				<td> ￥<s:property value="#orders.purchaseOrders_price"/> </td>
 				<td> <s:property value="#orders.purchaseOrders_type"/> </td>
 				<td> <s:property value="#orders.purchaseOrders_amount"/> </td>
-				<td> <s:property value="#orders.purchaseOrders_message"/> </td>
+				<td> ￥<s:property value="#orders.purchaseOrders_totalPrice"/> </td>
 				<td> <s:date name="#orders.purchaseOrders_date" format="yyyy年MM月dd日hh:mm:ss"/> </td>
-				<td> Delete </td>
+			<!-- 	<td>确认付款</td>	 -->
+				<td><a href="deletePurchaseOrder.action?purchaseOrders_num=<s:property value="#orders.purchaseOrders_num"/>"
+						onclick="javascript : return confirm('您确定要取消订单吗?')">取消订单</a></td>
 			</tr>
 		</s:iterator>
 	</table>

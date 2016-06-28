@@ -4,7 +4,7 @@
 	src:url('/SH_SaleSystem/WebContent/fonts/raphaelicons-webfont.eot') format('eot'),
 		url('/SH_SaleSystem/WebContent/fonts/raphaelicons-webfont.ttf') format('ttf'),
 		url('/SH_SaleSystem/WebContent/fonts/raphaelicons-webfont.woff') format('woff'),
-		url('/SH_SaleSystem/WebContent/fonts/raphaelicons-webfont.svg') format('svg');
+		url('/SH_SaleSystem/WebContent/fonts/raphaelicons-webfont.svg') format('svg')
 		font-weight: normal;
 		font-style: normal;
 }
@@ -53,7 +53,7 @@ a{
 	z-index: 10;
 	font-weight: 700;
 	font-size: 16px;
-	background: #e23a6e;
+	background: #0080ff;
 	text-align: center;
 	color: #fff;
 	box-shadow: 1px 1px 1px rgba(151,24,64,0.2);
@@ -75,7 +75,7 @@ a{
 }
 .st-container input:checked + a,
 .st-container input:checked:hover + a{
-	background: #821134;
+	background: #8080c0;
 }
 .st-container input:checked + a:after {
 	content:"";
@@ -83,14 +83,14 @@ a{
 	height: 0;
 	overflow: hidden;
 	border: 20px solid transparent;
-	border-bottom-color: #821134;
+	border-bottom-color: #8080c0;
 	position: absolute;
 	bottom: 100%;
 	left: 50%;
 	margin-left: -20px;
 }
 .st-container input:hover + a {
-	background: #AD244F;
+	background: #8080c0;
 }
 
 /*       Content  Model   */
@@ -158,7 +158,7 @@ a{
 .st-desc{
 	width: 200px;
 	height: 200px;
-	background:#fa96b5;
+	background:#6185A9;
 	position: absolute;
 	left: 50%;
 	top: 0;
@@ -190,7 +190,7 @@ a{
 	font-family: "Raphaelicons";
 }
 .st-panel h2{
-	color: #e23a6e;
+	color: #6185A9;
 	font-size: 54px;
 	line-height: 50px;
 	text-align: center;
@@ -265,13 +265,13 @@ a{
 
 
 .st-color {
-	background: #fa96b5; 
+	background: #6185A9; 
 }
 .st-color .st-desc{
 	background: #fff;
 }
 .st-color [data-icon]:AFTER {
-	color: #fa96b5;
+	color: #6185A9;
 }
 .st-color h2{
 	color: #fff;

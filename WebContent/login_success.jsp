@@ -27,13 +27,53 @@ function firm()
         alert("您已取消退出,可继续使用本系统");
     }
 }
-
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <link rel="stylesheet" href="Font-Awesome-3.2.1/css/font-awesome.css">
 <link rel="stylesheet" href="Font-Awesome-3.2.1/css/font-awesome.min.css">
 <title>RicSystem-CHEN</title>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 30px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 10px;
+  padding: 15px;
+  width: 80px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -42,26 +82,29 @@ function firm()
 		<div id="menu">
 			<div id="menu_container">
 				<ul id="menu_items">
-					<li class="menu_item on" style="border-radius:8px 0 0 8px" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#77D1F6';this.style.borderRadius='8px 0 0 8px'"><a>首页</a></li>
+					<li class="menu_item on" style="border-radius:8px 0 0 8px" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#77D1F6';this.style.borderRadius='8px 0 0 8px'"><a href="home_content.jsp" target="MainFrame">首页</a></li>
 					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a href="Employees_query_success.jsp" target="MainFrame">员工管理</a></li>
 					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a>商品管理</a></li>
-					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a>供应商和客户</a></li>
+					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a href="purchase_ordersInfo.jsp">订单中心</a></li>
 					<li class="menu_item" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'"><a>销售订单</a></li>
 					<li class="menu_item" style="border-radius:8px 0 0 8px;border:0px;" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.borderRadius='0 8px 8px 0';this.style.fontWeight='bold'">
-					<a href="sign_up.jsp" target="_blank">SIGN UP</a></li>
+					<a href="index.html" target="_blank">关于我们</a></li>
 				</ul>
 			</div>
 		</div>
 		<div id="user_info">
 			<div id="welcome">欢迎${sessionScope.loginUserName}使用本系统</div>
-			<div id="logout"><a href="#" onclick="firm()">安全退出</a></div>
+			<div id="logout"><a href="#" onclick="firm()">
+				<button class="button" style="vertical-align:middle"><span>退出</span></button>
+				</a>
+			</div>
 		</div>
 	</div>
 	<div id="navigator">
 		<iframe src="tree.jsp"></iframe>
         </div>
 	<div id="main">
-		<iframe name="MainFrame" src="home_content.jsp" scrolling="auto"></iframe>
+		<iframe name="MainFrame" src="home_content.jsp"></iframe>
 	</div>
 	<div id="footer">Copyright © 2016-2060 All Rights Reserved Powered By ChenBaiCheng</div>
 </div>

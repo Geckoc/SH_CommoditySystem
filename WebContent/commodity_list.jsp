@@ -126,7 +126,7 @@
 		<td><s:property value="#commodity.commodity_information"/> </td>
 		<td><s:date name="#commodity.commodity_time" format="yyyy年MM月dd日" /> </td>
 		<td><a href="GetPurchaseOrder_info.action?commodity_num=<s:property value="#commodity.commodity_num"/>">
-				加入购物车</a></td>
+				添加订单</a></td>
 		<td><a href="deleteCommodity.action?commodity_num=<s:property value="#commodity.commodity_num"/>"
 		onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
 	</tr>

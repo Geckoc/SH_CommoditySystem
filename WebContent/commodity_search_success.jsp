@@ -107,7 +107,7 @@
 			</tr>
 			<tr>
 				<td>商品库存：</td>
-				<td><input type="text" readonly="readonly" name="commodity_information" value='<s:property value="#session.search_list.commodity_information"/>'></td>
+				<td><input type="number" min="1" name="commodity_information" value='<s:property value="#session.search_list.commodity_information"/>'></td>
 			</tr>
 			<tr>
 				<td>上架时间：</td>

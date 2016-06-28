@@ -5,6 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="layer/layer.js"></script>
+<script type="text/javascript">
+     function test(){
+    var ii = layer.msg('玩命加载中', {icon: 16});
+    //此处用setTimeout演示ajax的回调
+    setTimeout(function(){
+        layer.close(ii);
+    }, 2000);
+};
+</script>
 <title>后台管理员登录</title>
 </head>
 <body>
@@ -14,6 +25,7 @@
 		<div id="heading">
 			<div id="title">RIC进销存管理系统</div>
 			<div id="subTitle">RICHARD 1.0</div>
+			<div id="subTitle"><a href="sign_up.jsp">加入我们</a></div>
 		</div>
 	</div>
 	<div id="main">
@@ -23,7 +35,7 @@
 					<div id="image"></div>
 				</div>
 				<div id="right">
-<s:form action="login.action" method="post">
+<s:form action="login.action" onsubmit="return test()" method="post">
 	<!-- start of login form -->
 					<div id="welcome">
 						<span id="welcome-text">管&nbsp;理&nbsp;登&nbsp;录</span>
@@ -37,7 +49,7 @@
 						<span class="input"><input type="password" name="password" class="form-input"></span>
 					</div>
 					<div id="button-group">
-						<input type="submit" class="btn" value="登录"/>
+						<input type="submit" class="btn" value="登录" onclick=""/>
 						<input type="reset" class="btn" value="重置"/>
 					</div>
 					<div>

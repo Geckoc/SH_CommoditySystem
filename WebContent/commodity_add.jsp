@@ -98,13 +98,13 @@
 <div id="mainContainer">
 	<s:form name="commodity_add" action="addCommodity.action" method="post">
 		<table width="400">
-			<tr><td><s:textfield name="commodity_num" label="商品编号"/></td></tr>
+			<tr><td><s:textfield name="commodity_num" label="商品编号" type="number"/></td></tr>
 			<tr><td><s:textfield name="commodity_name" label="商品名"/></td></tr>
 			<tr><td><s:textfield name="commodity_price" label="商品价格"/></td></tr>
 			<tr><td><s:textfield name="commodity_type" label="商品类型"/></td></tr>
 			<tr>
-				<td>添加库存量:</td>
-				<td><input type="number" min="1" value="0" step="1" name="commodity_information"></td>
+				<td>库存:</td>
+				<td><input type="number" min="1" step="1" name="commodity_information" /></td>
 			</tr>
 			<tr>
 				<td>上架时间:</td>

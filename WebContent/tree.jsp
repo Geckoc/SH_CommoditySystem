@@ -42,8 +42,8 @@ var treeMenu = [
 	{ level:1, name:"商品管理"},
 	{ level:2, name:"商品列表 ", ico:"images/icon_default.gif",link:"queryCommodity.action"},
 	{ level:1, name:"订单管理"},
-	{ level:2, name:"进货订单", ico:"images/icon_default.gif",link:"QueryAllOrdersInfo.action"},
-	{ level:2, name:"销售订单", ico:"images/icon_default.gif",link:"bulletin_list.html"},
+	{ level:2, name:"进货购物车", ico:"images/icon_default.gif",link:"QueryAllOrdersInfo.action"},
+	{ level:2, name:"销售订单", ico:"images/icon_default.gif",link:"#"},
 	{ level:1, name:"系统邮件", ico:"images/icon_default.gif"},
 	{ level:1, name:"用户反馈", ico:"images/icon_default.gif",link:"complaint_list.html"}
 ];

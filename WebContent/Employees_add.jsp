@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table width="400">
   <tr>
     <td>  <!-- <input type="text" name="employee_num" /> -->
-    	<s:textfield  name="employee_num" label="员工编号"/>
+    	<s:textfield  name="employee_num" label="员工编号" type="number"/>
     </td>
   </tr>
   <tr>
@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td><!-- <input type="text" name="employee_phone" /> -->
-    	<s:textfield name="employee_phone" label="联系电话"/>
+    	<s:textfield name="employee_phone" type="number" label="联系电话"/>
     </td>
   </tr>
   <tr>
