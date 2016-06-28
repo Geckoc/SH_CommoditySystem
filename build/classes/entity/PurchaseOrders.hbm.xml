@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-24 20:48:43 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.PurchaseOrders" table="PURCHASEORDERS">
+        <id name="purchaseOrders_num" type="java.lang.String" length="8">
+            <generator class="assigned" />
+        </id>
+        <property name="Commodity_num" type="java.lang.String">
+        </property>
+        <property name="purchaseOrders_name" type="java.lang.String">
+        </property>
+        <property name="purchaseOrders_price" type="java.lang.String">
+        </property>
+        <property name="purchaseOrders_type" type="java.lang.String">
+        </property>
+        <property name="purchaseOrders_totalPrice" type="java.lang.Double">
+        </property>
+        <property name="purchaseOrders_amount" type="java.lang.String">
+        </property>
+        <property name="purchaseOrders_date" type="java.util.Date">
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>
